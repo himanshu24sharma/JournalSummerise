@@ -5,6 +5,8 @@ from bson import ObjectId
 from db import chat_collection
 from datetime import datetime
 from typing import Optional
+from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI(
     title="JournalBot API",
@@ -75,3 +77,13 @@ async def get_chats(
     return [serialize_chat(chat) for chat in chats]
 
 app.include_router(router)
+
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], 
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
