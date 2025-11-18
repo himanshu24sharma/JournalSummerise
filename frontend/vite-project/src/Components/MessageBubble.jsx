@@ -9,10 +9,7 @@ export default function MessagePair({ userMessage, botMessage, timestamp }) {
 
   return (
     <div className="flex flex-col gap-3 my-4">
-      <Card
-        className="self-end bg-blue-50 border border-blue-200 shadow-sm max-w-[75%]"
-        size="small"
-      >
+      <Card size="small">
         <Meta
           avatar={
             <Avatar

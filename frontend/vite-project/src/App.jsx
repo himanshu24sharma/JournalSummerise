@@ -1,13 +1,18 @@
 import { useState } from "react";
 import "./App.css";
 import Home from "./Components/Home";
+import { ConfigProvider, theme } from "antd";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <Home />
+      <ConfigProvider
+        theme={{
+          algorithm: theme.darkAlgorithm, // 👈 enables dark mode
+        }}
+      >
+        <Home />
+      </ConfigProvider>
     </>
   );
 }
