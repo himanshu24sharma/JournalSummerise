@@ -72,7 +72,7 @@ async def get_chats(
     if date_filter:
         query["created_at"] = date_filter
 
-    chats = await chat_collection.find(query).sort("created_at", -1).to_list(length=100)
+    chats = await chat_collection.find(query).sort("created_at", 1).to_list(length=100)
 
     return [serialize_chat(chat) for chat in chats]
 
